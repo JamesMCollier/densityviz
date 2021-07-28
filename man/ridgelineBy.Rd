@@ -29,5 +29,5 @@ a gg or ggplot object
 Generate density plots on the same graph, grouped by a dimension of choice
 }
 \examples{
-**do later
+
 }
