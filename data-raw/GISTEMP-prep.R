@@ -12,5 +12,5 @@ z = st_set_dimensions(z,3, values = as.Date(st_get_dimension_values(z,3)))
 z
 # it would be better for analysis to index Time dimension by year
 GISTEMP = st_set_dimensions(z,3,values = as.numeric(format(st_get_dimension_values(z,3), "%Y")))
+GISTEMP = filter(GISTEMP, between(Time, 1970, 2020))
 GISTEMP
-
