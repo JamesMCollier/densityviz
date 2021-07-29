@@ -8,7 +8,7 @@
 #' @param plotTitle title of plot
 #' @param y_reverse should the y axis be reversed?
 #' @param sd if TRUE (the default), the range of the x axis is within three standard deviations
-#' of the mean, if FALSE the range of the x axis is simply the minimum and maximum of the attribute
+#' of the mean, if FALSE the range of the x axis is the minimum and maximum of the attribute
 #' @param ... arguments passed to scale_y_continuous() or scale_y_reverse()
 #'
 #' @return a gg or ggplot object

@@ -18,7 +18,7 @@ ridgelineBy(starsObj, attr, dim, plotTitle, y_reverse = FALSE, sd = TRUE, ...)
 \item{y_reverse}{should the y axis be reversed?}
 
 \item{sd}{if TRUE (the default), the range of the x axis is within three standard deviations
-of the mean, if FALSE the range of the x axis is simply the minimum and maximum of the attribute}
+of the mean, if FALSE the range of the x axis is the minimum and maximum of the attribute}
 
 \item{...}{arguments passed to scale_y_continuous() or scale_y_reverse()}
 }
