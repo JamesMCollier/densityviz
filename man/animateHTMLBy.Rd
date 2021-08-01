@@ -18,7 +18,7 @@ anim_factory(starsObj, attr, dim, title, anim_range = NULL, ...)
 
 \item{title}{plot title}
 
-\item{anim_range}{if specified, range of dimension values along which to animate}
+\item{anim_range}{if specified, dimension values along which to animate}
 
 \item{...}{arguments passed to plotDensityByDimensionValue()}
 }
