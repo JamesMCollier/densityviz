@@ -12,3 +12,4 @@
 #' }
 #' @source \url{https://data.giss.nasa.gov/gistemp/}
 "GISTEMP"
+
