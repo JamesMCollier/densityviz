@@ -2,6 +2,7 @@
 
 export(anim_factory)
 export(animateHTMLBy)
+export(anomalize)
 export(plotDensityByDimensionValue)
 export(ridgelineBy)
 importFrom(rlang,.data)
