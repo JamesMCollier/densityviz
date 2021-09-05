@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#'
+#' animateHTMLBy(GISTEMP, 1, 3, "Australia", anim_range = 1981:2020, baseline = c(1951,1980), sf = rnaturalearth::ne_countries(country = "Australia", returnclass = "sf"))
 animateHTMLBy = function(starsObj, attr, dim, title, anim_range = NULL, ...){
   animation::ani.options(interval = .4)
   animation::saveHTML(anim_factory(starsObj, attr, dim, title, ..., anim_range),
@@ -57,6 +57,8 @@ anim_factory = function(starsObj, attr, dim, title, anim_range = NULL, ...){
 #' @export
 #'
 #' @examples
+#' plotDensityByDimensionValue(GISTEMP, 1, 3, 1980, "Australia", sf = rnaturalearth::ne_countries(country = "Australia", returnclass = "sf"))
+#'
 plotDensityByDimensionValue = function(starsObj, attr, dim, value, title, sf = NULL, baseline = NULL, ylim = c(0,0.5), xlim = NULL, sd = TRUE){
   if(sd == TRUE) range = base::c(-3 * stats::sd(starsObj[[attr]], na.rm = TRUE), 3 * stats::sd(starsObj[[attr]], na.rm = TRUE))
   else range = base::c(base::min(base::as.numeric(starsObj[[attr]]), na.rm = TRUE), base::max(base::as.numeric(starsObj[[attr]]), na.rm = TRUE))

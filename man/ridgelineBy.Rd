@@ -29,5 +29,8 @@ a gg or ggplot object
 Generate density plots on the same graph, grouped by a dimension of choice
 }
 \examples{
+ridgelineBy(GISTEMP_Decadal, 1, 3, "Ridgeline", y_reverse = TRUE, breaks = seq(1970,2010,10))
 
+# can subset stars objects by sf objects, such as countries from the rnaturalearth package
+ridgelineBy(GISTEMP_Decadal[rnaturalearth::ne_countries(country = "Australia", returnclass = "sf")], 1, 3, "Australia Ridgeline", breaks = seq(1970,2010,10))
 }

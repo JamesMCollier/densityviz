@@ -14,12 +14,13 @@
 #' @export
 #'
 #' @examples
-#'
+#' anomalize(GISTEMP,1,1,2,3)
+#' anomalize(GISTEMP,1,"Long","Lat","Time", baseline = 1951:1980)
 anomalize = function(starsObj, attr, space1, space2 = NULL, time, baseline = NULL, ...){
   x = stars::st_get_dimension_values(starsObj, space1)
 
   # need to redefine baseline a bit for subsetting
-  if(base::is.null(baseline)) baseline = 1:base::length(st_get_dimension_values(starsObj,time))
+  if(base::is.null(baseline)) baseline = 1:(base::length(stars::st_get_dimension_values(starsObj,time)))
   else{
     z = stars::st_get_dimension_values(starsObj, time)
     baseline = base::which(z %in% baseline)
@@ -47,10 +48,8 @@ anomalize = function(starsObj, attr, space1, space2 = NULL, time, baseline = NUL
     }
   }
 
-  units::units(anoms) = units::units(starsObj[[attr]]) = NULL
-
   # we need to rely a bit on R's Vector Recycling Rules
   # is this the best way?
-  starsObj[[attr]] = starsObj[[attr]] - base::as.vector(anoms)
+  starsObj[[attr]] = units:::set_units(starsObj[[attr]],NULL) - base::as.vector(anoms)
   return(starsObj)
 }

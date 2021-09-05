@@ -46,3 +46,7 @@ minimum and maximum of the attribute.}
 \description{
 Plot Density for a Chosen Dimension Value
 }
+\examples{
+plotDensityByDimensionValue(GISTEMP, 1, 3, 1980, "Australia", sf = rnaturalearth::ne_countries(country = "Australia", returnclass = "sf"))
+
+}

@@ -16,7 +16,10 @@
 #' @export
 #'
 #' @examples
+#' ridgelineBy(GISTEMP_Decadal, 1, 3, "Ridgeline", y_reverse = TRUE, breaks = seq(1970,2010,10))
 #'
+#' # can subset stars objects by sf objects, such as countries from the rnaturalearth package
+#' ridgelineBy(GISTEMP_Decadal[rnaturalearth::ne_countries(country = "Australia", returnclass = "sf")], 1, 3, "Australia Ridgeline", breaks = seq(1970,2010,10))
 ridgelineBy = function(starsObj, attr, dim, plotTitle, y_reverse = FALSE, sd = TRUE, ...){
   if(sd == TRUE) range = c(-3 * stats::sd(starsObj[[attr]], na.rm = TRUE), 3 * stats::sd(starsObj[[attr]], na.rm = TRUE))
   else range = c(base::min(base::as.numeric(starsObj[[attr]]), na.rm = TRUE), base::max(base::as.numeric(starsObj[[attr]]), na.rm = TRUE))
