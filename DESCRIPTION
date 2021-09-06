@@ -1,5 +1,5 @@
 Package: densityviz
-Title: Density Visualizations and the STARS Package
+Title: Visualizing spatio-temporal data 
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "James",
@@ -7,27 +7,26 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jmchpd@umsystem.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: An R package providing visualizations and animations of density curves. Implemented using the stars package.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: An R package providing visualizations and animations of spatio-temporal 
+  stars objects.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Roxygen: list(markdown = TRUE)
+LazyLoad: true
 RoxygenNote: 7.1.1
 Imports: 
     dplyr,
     ggplot2,
     rlang,
     sf,
-    stars
-Suggests: 
-    RColorBrewer,
-    ggridges,
-    testthat (>= 3.0.0),
+    stars,
     animation,
+    ggridges,
+    RColorBrewer,
     rnaturalearth,
-    vdiffr,
-    units
+    testthat (>= 3.0.0),
+    units,
+    vdiffr
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)

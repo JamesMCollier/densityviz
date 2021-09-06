@@ -29,8 +29,11 @@ a gg or ggplot object
 Generate density plots on the same graph, grouped by a dimension of choice
 }
 \examples{
-ridgelineBy(GISTEMP_Decadal, 1, 3, "Ridgeline", y_reverse = TRUE, breaks = seq(1970,2010,10))
+ridgelineBy(starsObj = GISTEMP_Decadal, attr = 1, dim = 3, plotTitle = "Ridgeline",
+  y_reverse = TRUE, breaks = seq(1970, 2010, 10))
 
 # can subset stars objects by sf objects, such as countries from the rnaturalearth package
-ridgelineBy(GISTEMP_Decadal[rnaturalearth::ne_countries(country = "Australia", returnclass = "sf")], 1, 3, "Australia Ridgeline", breaks = seq(1970,2010,10))
+sobj <- GISTEMP_Decadal[ne_countries(country = "Australia", returnclass = "sf")]
+ridgelineBy(starsObj = sobj, attr = 1, dim = 3, plotTitle = "Australia Ridgeline",
+  breaks = seq(1970,2010,10))
 }

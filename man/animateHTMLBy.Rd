@@ -22,12 +22,11 @@ anim_factory(starsObj, attr, dim, title, anim_range = NULL, ...)
 
 \item{...}{arguments passed to plotDensityByDimensionValue()}
 }
-\value{
-
-}
 \description{
 Animate Densities by Dimension Values
 }
 \examples{
-animateHTMLBy(GISTEMP, 1, 3, "Australia", anim_range = 1981:2020, baseline = c(1951,1980), sf = rnaturalearth::ne_countries(country = "Australia", returnclass = "sf"))
+# Animation example of the GISTEMP dataset
+animateHTMLBy(GISTEMP, 1, 3, "Australia", anim_range = 1981:2020,
+  baseline = c(1951,1980), sf = ne_countries(country = "Australia", returnclass = "sf"))
 }
