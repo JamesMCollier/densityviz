@@ -50,6 +50,6 @@ anomalize = function(starsObj, attr, space1, space2 = NULL, time, baseline = NUL
 
   # we need to rely a bit on R's Vector Recycling Rules
   # is this the best way?
-  starsObj[[attr]] = units:::set_units(starsObj[[attr]],NULL) - base::as.vector(anoms)
+  starsObj[["Anomalized"]] = units:::set_units(starsObj[[attr]],NULL) - base::as.vector(anoms)
   return(starsObj)
 }
