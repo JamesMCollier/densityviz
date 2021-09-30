@@ -33,8 +33,12 @@ anomalize = function(starsObj, attr, space1, space2 = NULL, time, baseline = NUL
     i = 1
     for(i1 in x){
       array = starsObj[attr, i, baseline][[1]]
-      anoms[i] = base::mean(array, na.rm = TRUE)
-
+      avg = base::mean(array, na.rm = TRUE)
+      if(!base::is.null(avg)){
+        anoms[i] = avg
+      }else{
+        anoms[i] = NA
+      }
       i = i + 1
     }
   }
