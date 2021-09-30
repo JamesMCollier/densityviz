@@ -26,6 +26,19 @@ anomalize = function(starsObj, attr, space1, space2 = NULL, time, baseline = NUL
     baseline = base::which(z %in% baseline)
   }
 
+  # Say the data is on a station grid (i.e., only one spatial dimension)
+  if(base::is.null(space2)){
+    starsObj = base::aperm(starsObj, c(space1, time, ...))
+    i = 1
+    for(i1 in x){
+      array = starsObj[attr, i, baseline][[1]]
+
+      anoms[i] = base::mean(array, na.rm = TRUE)
+
+      i = i + 1
+    }
+  }
+
   i = j = 1
   # Say Long and Lat are provided
   if(!base::is.null(space2)){
