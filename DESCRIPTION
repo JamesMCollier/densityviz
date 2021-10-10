@@ -19,7 +19,8 @@ Imports:
     ggplot2,
     rlang,
     sf,
-    stars
+    stars,
+    Vizumap
 Suggests: 
     RColorBrewer,
     ggridges,
