@@ -1,5 +1,6 @@
 ## code to prepare `tmin-prep` dataset goes here
 ## data set found at http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.DAILY/.FSOD/
+library(dplyr)
 tmin = stars::read_stars("data-raw/tmin.nc")
 tmin = tmin %>% stars::st_set_dimensions(names = c("Time", "Station"))
 tmin = base::aperm(tmin, c(2,1))
