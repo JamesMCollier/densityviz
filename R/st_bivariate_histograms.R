@@ -23,7 +23,7 @@ st_bivariate_histogram = function(starsObj1, attr1, starsObj2, attr2, terciles, 
     ggplot2::scale_fill_identity(drop=FALSE) +
     ggplot2::scale_x_discrete(drop=FALSE) +
     ggplot2::theme(
-      axis.text = ggplot2::element_text(size = 6)
+      axis.text = ggplot2::element_text(size = 8)
     ) + ggplot2::ggtitle(title)
 
   if(!base::is.null(ymax)) hist = hist + ggplot2::ylim(c(0,ymax))
