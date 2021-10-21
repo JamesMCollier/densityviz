@@ -25,10 +25,9 @@ anomalize(starsObj, attr, space1, space2 = NULL, time, baseline = NULL, ...)
 a stars object with anomalized attribute
 }
 \description{
-Redefine data points as how far away they are from the average for that point
-in space, a useful tool for better visualization and analysis
+Redefine data points as how far away they are from the average for that point in space, a useful tool for better visualization and analysis
 }
 \examples{
-anomalize(GISTEMP, 1, 1, 2, 3)
-anomalize(GISTEMP, 1, "Long", "Lat", "Time", baseline = 1951:1980)
+anomalize(GISTEMP,1,1,2,3)
+anomalize(GISTEMP,1,"Long","Lat","Time", baseline = 1951:1980)
 }
