@@ -2,7 +2,7 @@
 % Please edit documentation in R/st_assign_colors.R
 \name{st_assign_colors}
 \alias{st_assign_colors}
-\title{Bin numeric data and assign colors for plotting}
+\title{st_assign_colors}
 \usage{
 st_assign_colors(
   starsObj1,
@@ -36,5 +36,9 @@ a data frame of the attributes, factor levels, and color (in hexadecimal)
 Bin numeric data and assign colors for plotting
 }
 \examples{
-st_assign_colors(tmax,1,tmin,1,FALSE)
+out <- st_assign_colors(tmax, 1, tmin, 1, terciles = FALSE)
+data <- out$data
+colors <- out$colors
+bounds <- out$bounds
+
 }

@@ -4,16 +4,10 @@
 \alias{st_2d_raster_density}
 \title{Produce density plots of bivariate data with 'raster' geom}
 \usage{
-st_2d_raster_density(starsObj1, attr1, starsObj2, attr2)
+st_2d_raster_density(data)
 }
 \arguments{
-\item{starsObj1}{a stars object}
-
-\item{attr1}{attribute of starsObj1 to be plotted}
-
-\item{starsObj2}{a stars object}
-
-\item{attr2}{attribute of starsobj2 to be plotted}
+\item{data}{data}
 }
 \value{
 a ggplot
@@ -22,5 +16,9 @@ a ggplot
 Produce density plots of bivariate data with 'raster' geom
 }
 \examples{
-st_2d_raster_density(tmax[,,14613:18263],1,tmin[,,14613:18263],1)
+# Preparing the data
+data <- st_getAttributes(tmax[,,14613:18263], 1, tmin[,,14613:18263], 1)
+rdens <- st_2d_raster_density(data)
+rdens
+
 }
