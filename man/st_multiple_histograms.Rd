@@ -49,6 +49,7 @@ Create multiple plots of bivariate spatio-temporal data along chosen dimension v
 time <- as.numeric(st_get_dimension_values(tmax, 2))
 periods <- list(c(1950:1959), c(1960:1969), c(1970:1979), c(1980:1989),c(1990:1999))
 decades <- lapply(periods, function(x, time) which(time \%in\% x), time)
+
 histograms <- st_multiple_histograms(tmax, 1, tmin, 1, dim_values = decades,
                  terciles = TRUE, which = 2, titles = c(1:5))
 colnames(data) = c("Tmax","Tmin","bothVars","hex_code")

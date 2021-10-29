@@ -5,7 +5,6 @@
 #' @param data data frame containing data from two attributes, the binned
 #'             information and colour code.
 #' @param terciles should terciles be calculated?
-#' @param bounds if custom bounds should be plotted, default NULL
 #' @param ymax if custom maximum y-axis value is desired, default NULL
 #' @param title title of plot
 #'
@@ -34,9 +33,9 @@
 #' view(key)
 #' attach_key(bvh, key)
 #'
-st_bivariate_histogram <- function(data, bounds = NULL, ymax = NULL, title){
+st_bivariate_histogram <- function(data, ymax = NULL, title){
 
-  histobj <- ggplot(out$data, aes_string(x = 'bothVars', fill = 'hex_code')) +
+  histobj <- ggplot(data, aes_string(x = 'bothVars', fill = 'hex_code')) +
     geom_bar(aes(y = ..count../sum(..count..)), position = "dodge") +
     scale_fill_identity(drop = FALSE) +
     scale_x_discrete(drop = FALSE) +

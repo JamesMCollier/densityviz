@@ -4,13 +4,11 @@
 \alias{st_bivariate_histogram}
 \title{st_bivariate_histogram}
 \usage{
-st_bivariate_histogram(data, bounds = NULL, ymax = NULL, title)
+st_bivariate_histogram(data, ymax = NULL, title)
 }
 \arguments{
 \item{data}{data frame containing data from two attributes, the binned
 information and colour code.}
-
-\item{bounds}{if custom bounds should be plotted, default NULL}
 
 \item{ymax}{if custom maximum y-axis value is desired, default NULL}
 
