@@ -8,6 +8,7 @@
 #' further in the past than data.primary. Build using st_assign_colors.
 #' @param key a key build using Vizumap::build_bkey. Ensure data has same bounds as key, either with
 #' st_change_key_bounds or building data in st_assign_colors with custom bounds
+#' @param factor the name of the factor variable in the data that contains the bins for bivariate data
 #'
 #' @return draws on the  plot window
 #' @export
