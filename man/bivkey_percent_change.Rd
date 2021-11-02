@@ -4,7 +4,13 @@
 \alias{bivkey_percent_change}
 \title{bivkey_percent_change}
 \usage{
-bivkey_percent_change(data.primary, data.base, key, factor = bothVars)
+bivkey_percent_change(
+  data.primary,
+  data.base,
+  key,
+  factor = bothVars,
+  labelSize = 5
+)
 }
 \arguments{
 \item{data.primary}{the data for which change in bins (from data.base levels) should be calculated.
@@ -15,6 +21,10 @@ further in the past than data.primary. Build using st_assign_colors.}
 
 \item{key}{a key build using Vizumap::build_bkey. Ensure data has same bounds as key, either with
 st_change_key_bounds or building data in st_assign_colors with custom bounds}
+
+\item{factor}{the name of the factor variable in the data that contains the bins for bivariate data}
+
+\item{labelSize}{the size of the labels printed on the keys. See ggplot2::geom_label for more details.}
 }
 \value{
 draws on the  plot window

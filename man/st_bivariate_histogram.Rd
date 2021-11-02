@@ -39,8 +39,8 @@ bvh <- st_bivariate_histogram(data = data,
 bvh
 
 # creating and attaching the key
-key <- build_bkey(data, colors, terciles = TRUE)
-view(key)
+key <- Vizumap::build_bkey(data, colors, terciles = TRUE)
+Vizumap::view(key)
 attach_key(bvh, key)
 
 }

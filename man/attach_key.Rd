@@ -20,11 +20,19 @@ draws on the current device or returns a grob
 View bivariate histograms with their keys
 }
 \examples{
-plot = st_bivariate_histogram(tmax,1,tmin,1,terciles=FALSE,title="Max/Min temperature distribution")
-palette = Vizumap::build_palette(name = "usr", colrange = list(colour = c("darkblue", "chartreuse4"), difC = c(3, 4)))
-data = st_assign_colors(tmax,1,tmin,1,terciles=FALSE,palette=palette)
-colnames(data) = c("Tmax","Tmin","bothVars","hex_code")
-key = Vizumap::build_bkey(data, palette, terciles = TRUE)
+# Preparing the data
+out <- st_assign_colors(tmax, 1, tmin, 1, terciles = FALSE)
+data <- out$data
+colors <- out$colors
+bounds <- out$bounds
 
-attach_key(plot,key)
+# generating and plotting the histogram
+bvh <- st_bivariate_histogram(data = data,
+            title = "Max/Min temperature distribution")
+bvh
+
+# creating and attaching the key
+key <- Vizumap::build_bkey(data, colors, terciles = TRUE)
+Vizumap::view(key)
+attach_key(bvh, key)
 }

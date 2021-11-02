@@ -4,24 +4,15 @@
 \alias{st_bivariate_pointdensity}
 \title{Produce point density plot of bivariate data}
 \usage{
-st_bivariate_pointdensity(starsObj1, attr1, starsObj2, attr2)
+st_bivariate_pointdensity(data)
 }
 \arguments{
-\item{starsObj1}{a stars object}
-
-\item{attr1}{attribute of starsObj1 to be plotted}
-
-\item{starsObj2}{a stars object}
-
-\item{attr2}{attribute of starsObj2 to be plotted}
+\item{data}{the data in long form, as returned from st_getAttributes and get_density.
+The first two columns should be the variables of interest and the third should be their density}
 }
 \value{
 a ggplot
 }
 \description{
 Produce point density plot of bivariate data
-}
-\examples{
-st_bivariate_pointdensity(tmax[,,14613:18263],1,tmin[,,14613:18263],1)
-
 }

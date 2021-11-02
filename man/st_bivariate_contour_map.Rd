@@ -4,16 +4,11 @@
 \alias{st_bivariate_contour_map}
 \title{Produce points and density contour map for bivariate data}
 \usage{
-st_bivariate_contour_map(starsObj1, attr1, starsObj2, attr2)
+st_bivariate_contour_map(data)
 }
 \arguments{
-\item{starsObj1}{a stars object}
-
-\item{attr1}{attribute of starsObj1 to be plotted}
-
-\item{starsObj2}{a stars object}
-
-\item{attr2}{attribute of starsObj2 to be plotted}
+\item{data}{the data in long form, as returned from st_getAttributes or st_assign_colors.
+The first two columns should be the variables of interest.}
 }
 \value{
 a ggplot
@@ -22,5 +17,14 @@ a ggplot
 Produce points and density contour map for bivariate data
 }
 \examples{
-st_bivariate_contour_map(tmax[,,14613:18263],1,tmin[,,14613:18263],1)
+library(stars)
+# matched time to decadal time periods
+time <- as.numeric(st_get_dimension_values(tmax, 2))
+periods <- list(c(1950:1959), c(1960:1969), c(1970:1979), c(1980:1989),c(1990:1999))
+decades <- lapply(periods, function(x, time) which(time \%in\% x), time)
+
+# We wish to view data from 1990-1999
+data = st_getAttributes(tmax[,,decades[[5]]], 1, tmin[,,decades[[5]]], 1)
+colnames(data) = c("MaxTemp", "MinTemp")
+st_bivariate_contour_map(data)
 }

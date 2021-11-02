@@ -7,7 +7,8 @@
 st_2d_raster_density(data)
 }
 \arguments{
-\item{data}{data}
+\item{data}{the data in long form, as returned from st_getAttributes or st_assign_colors.
+The first two columns should be the variables of interest.}
 }
 \value{
 a ggplot
@@ -16,9 +17,14 @@ a ggplot
 Produce density plots of bivariate data with 'raster' geom
 }
 \examples{
-# Preparing the data
-data <- st_getAttributes(tmax[,,14613:18263], 1, tmin[,,14613:18263], 1)
-rdens <- st_2d_raster_density(data)
-rdens
+library(stars)
+# matched time to decadal time periods
+time <- as.numeric(st_get_dimension_values(tmax, 2))
+periods <- list(c(1950:1959), c(1960:1969), c(1970:1979), c(1980:1989),c(1990:1999))
+decades <- lapply(periods, function(x, time) which(time \%in\% x), time)
 
+# We wish to view data from 1990-1999
+data = st_getAttributes(tmax[,,decades[[5]]], 1, tmin[,,decades[[5]]], 1)
+colnames(data) = c("MaxTemp", "MinTemp")
+st_2d_raster_density(data)
 }
