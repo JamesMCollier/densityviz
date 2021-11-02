@@ -9,6 +9,7 @@
 #' @param key a key build using Vizumap::build_bkey. Ensure data has same bounds as key, either with
 #' st_change_key_bounds or building data in st_assign_colors with custom bounds
 #' @param factor the name of the factor variable in the data that contains the bins for bivariate data
+#' @param labelSize the size of the labels printed on the keys. See ggplot2::geom_label for more details.
 #'
 #' @return draws on the  plot window
 #' @export
@@ -44,7 +45,7 @@
 #' key = st_change_key_bounds(key, bounds)
 #'
 #' bivkey_percent_change(data.primary = data2, data.base = data1, key)
-bivkey_percent_change = function(data.primary, data.base, key, factor = bothVars){
+bivkey_percent_change = function(data.primary, data.base, key, factor = bothVars, labelSize = 5){
   factor = enquo(factor)
   if(!all.equal(levels(data.primary$bothVars), levels(data.base$bothVars))){
     stop("Please ensure the data objects have the same bounds (use st_assign_colors with custom bounds)")
@@ -58,11 +59,11 @@ bivkey_percent_change = function(data.primary, data.base, key, factor = bothVars
   by_group$percChangeString = unlist(lapply(by_group$percChange, generate_percChange_string))
   by_group$percChangeColor = unlist(lapply(by_group$percChange, generate_percChange_colors))
 
-  key.primary = view(key) + geom_label(data=by_group, size=6, aes(x = centroidx, y = centroidy,
+  key.primary = view(key) + geom_label(data=by_group, size=labelSize, aes(x = centroidx, y = centroidy,
                             label = percChangeString, color = percChangeColor, fontface = "bold")) +
     theme(legend.position = "none") + scale_color_identity()
 
-  key.base = view(key) + geom_label(data=by_group, size=6, aes(x = centroidx, y = centroidy,
+  key.base = view(key) + geom_label(data=by_group, size=labelSize, aes(x = centroidx, y = centroidy,
                                     label = paste0(100*round(percOfObs,4),'%'), fontface = "bold"))
 
   grid.arrange(key.base, key.primary, ncol=1)
