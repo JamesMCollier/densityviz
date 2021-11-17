@@ -10,6 +10,8 @@
 #'
 #'
 st_findNbounds <- function(data, terciles){
-  bounds <- findNbounds_helper(data, "attr1", "attr2", terciles)
+  var1 = names(data)[1]
+  var2 = names(data)[2]
+  bounds = findNbounds_helper(data, var1, var2, terciles)
   bounds
 }
